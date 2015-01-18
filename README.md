@@ -19,6 +19,8 @@ d. added async tag to analytics.js
 e. optimize pizzera.jpg.  In the design the image never seems to get bigger
 than 360x270, so resized to that.
 
+4. Git branch "gh-pages" added so project can be served by git-hub
+
 
 ## To Run this project
 
