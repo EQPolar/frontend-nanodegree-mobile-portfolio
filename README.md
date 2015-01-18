@@ -1,3 +1,32 @@
+## Steps Taken to Optimize this portfolio website:
+
+1. Clone the [orginal repo.](https://github.com/udacity/frontend-nanodegree-mobile-portfolio)
+2. Initizle the repo for node.js and the install gulp. This assumes npm and gulp are already installed globally.
+
+  ```bash
+  sudo npm init
+  sudo npm install --save-dev gulp
+  ```
+3. Setup minification for images, javascript, and html files.  I 
+will not setup minification for css files, as I am going to inline
+the largest one. 
+
+4. Changes to the index html
+a. move the google analytics script to just just before end of body tag
+b. inline the style.css file
+c. add media tag to print.css files
+d. added async tag to analytics.js
+e. optimize pizzera.jpg.  In the design the image never seems to get bigger
+than 360x270, so resized to that.
+
+
+## To Run this project
+
+1. Make sure node and gulp are installed locally
+2. 
+
+
+
 ## Website Performance Optimization portfolio project
 
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
