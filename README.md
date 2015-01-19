@@ -26,11 +26,8 @@ practice but is done so that the example can be hosted from github.
 
 5. Optimze main.js file.
   - three changes made to the loop that moves the pizzas, comments in the main.js file near line 501
+  - I can get approx 58fps, based on the comments in the forums I believe this is enough. I can't see any other major improvements that can be done when scrolling.
   
-
-
-
-
 ## To Run this project
 
 1. Make sure node and gulp are installed locally
