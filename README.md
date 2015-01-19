@@ -12,14 +12,23 @@ will not setup minification for css files, as I am going to inline
 the largest one. 
 
 4. Changes to the index html
-a. move the google analytics script to just just before end of body tag
-b. inline the style.css file
-c. add media tag to print.css files
-d. added async tag to analytics.js
-e. optimize pizzera.jpg.  In the design the image never seems to get bigger
-than 360x270, so resized to that.
+  - a. move the google analytics script to just just before end of body tag
+  - b. inline the style.css file
+  - c. add media tag to print.css files
+  - d. added async tag to analytics.js
+  - e. optimize pizzera.jpg.  In the design the image never seems to get bigger
+  than 360x270, so resized to that.
+  - f. google fonts disabled, to get 90 PSI we need to use user's fonts
 
-4. Git branch "gh-pages" added so project can be served by git-hub
+4. Git branch "gh-pages" added so project can be served by git-hub. In 
+this example the build/ directory is part of the repo, this is not a good
+practice but is done so that the example can be hosted from github.
+
+5. Optimze main.js file.
+  - line 507 - remove some math from a loop that only has to be done once
+  
+
+
 
 
 ## To Run this project
