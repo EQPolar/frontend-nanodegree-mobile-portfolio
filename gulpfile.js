@@ -1,5 +1,6 @@
 // include gulp
 var gulp = require('gulp');
+var del = require('del');
 
 // include all plugins
 var jshint = require('gulp-jshint');
@@ -11,6 +12,10 @@ var uglify = require('gulp-uglify');
 var uglifycss = require('gulp-uglifycss');
 var rename = require('gulp-rename');
 var htmlreplace = require('gulp-html-replace');
+
+gulp.task('clean', function (cb) {
+  del('build/**', cb);
+})
 
 gulp.task('lint', function () {
   return gulp.src('js/*.js')
@@ -28,6 +33,9 @@ gulp.task('images', function (cb) {
 
 gulp.task('css', function () {
   return gulp.src('**/*.css')
+    .pipe(uglifycss({
+      'max-line-len': 80
+    }))
     .pipe(gulp.dest('./build/'));
 });
 
@@ -45,8 +53,7 @@ gulp.task('scripts-views', function () {
     .pipe(concat('all.js'))
     .pipe(gulp.dest('./build/views/js/'))
     .pipe(rename('all.min.js'))
-//     Uglify crashes here for some unexplained reason...
-            .pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest('./build/views/js/'));
 });
 
@@ -58,22 +65,14 @@ gulp.task('min-html', function () {
 
   gulp.src('**/*.html')
     .pipe(htmlreplace({
-        'js': 'js/all.min.js'
-    }))
+      'js': 'js/all.min.js'
+      }))
+  // For some reason this causes a crash. The stack trace does is not detailed enough
+  // to show where to look. 
+  //  .pipe(mininline())
     .pipe(minhtml(opts))
     .pipe(gulp.dest('./build/'))
 });
-
-// Watch Files For Changes - watch doesn't work because it loops
-// maybe better organization would have build dir below the source?
-gulp.task('watch', function () {
-  gulp.watch('./views/js/*.js', ['lint', 'scripts-views']);
-  gulp.watch('js/*.js', ['lint', 'scripts']);
-  gulp.watch('**/*.html', ['min-html']);
-  gulp.watch('**/*.css', 'css');
-});
-
-
 
 gulp.task('default', ['lint', 'css', 'images', 'scripts', 'min-html',
                      'scripts-views']);

@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/EQPolar/frontend-nanodegree-mobile-portfolio",
   "devDependencies": {
+    "del": "^1.1.1",
     "gulp": "^3.8.10",
     "gulp-concat": "^2.4.3",
     "gulp-html-replace": "^1.4.3",
