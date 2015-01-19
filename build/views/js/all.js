@@ -1,16 +1,12 @@
 /*
 Welcome to the 60fps project! Your goal is to make Cam's Pizzeria website run
 jank-free at 60 frames per second.
-
 There are two major issues in this code that lead to sub-60fps performance. Can
 you spot and fix both?
-
-
 Built into the code, you'll find a few instances of the User Timing API
 (window.performance), which will be console.log()ing frame rate data into the
 browser console. To learn more about User Timing API, check out:
 http://www.html5rocks.com/en/tutorials/webperformance/usertiming/
-
 Creator:
 Cameron Pittman, Udacity Course Developer
 cameron *at* udacity *dot* com
@@ -502,11 +498,15 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.querySelectorAll('.mover');
-  // OPTIMIZE: move math out of the loop that can be done once
-  var tmp = Math.sin((document.body.scrollTop / 1250));
-  for (var i = 0; i < items.length; i++) {
-    var phase = tmp + (i % 5);
+  var items = document.getElementsByClassName('mover');
+  // OPTIMIZE: get array length once
+  var tmpItemsLength = items.length;
+  
+  // OPTIMIZE: move math that can be pre-calced out of loop
+   var tmpMath = document.body.scrollTop / 1250;
+  
+  for (var i = 0; i < tmpItemsLength; i++) {
+    var phase =  Math.sin((tmpMath) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 

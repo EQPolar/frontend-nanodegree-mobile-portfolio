@@ -25,7 +25,7 @@ this example the build/ directory is part of the repo, this is not a good
 practice but is done so that the example can be hosted from github.
 
 5. Optimze main.js file.
-  - line 507 - remove some math from a loop that only has to be done once
+  - three changes made to the loop that moves the pizzas, comments in the main.js file near line 501
   
 
 
