@@ -74,5 +74,6 @@ gulp.task('min-html', function () {
     .pipe(gulp.dest('./build/'))
 });
 
+// clean is not a default task and has to be run implictily
 gulp.task('default', ['lint', 'css', 'images', 'scripts', 'min-html',
                      'scripts-views']);

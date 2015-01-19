@@ -7,9 +7,7 @@
   sudo npm init
   sudo npm install --save-dev gulp
   ```
-3. Setup minification for images, javascript, and html files.  I 
-will not setup minification for css files, as I am going to inline
-the largest one. 
+3. Setup minification for images, css, javascript, and html files using the approiate gulp plugins.
 
 4. Changes to the index html
   - a. move the google analytics script to just just before end of body tag
@@ -22,7 +20,7 @@ the largest one.
 
 4. Git branch "gh-pages" added so project can be served by git-hub. In 
 this example the build/ directory is part of the repo, this is not a good
-practice but is done so that the example can be hosted from github.
+practice but is done so that the example can be hosted from github. If it was my project I would probably have a src/ and build/ directory, but I don't want to change the project structure too much.
 
 5. Optimze main.js file.
   - three changes made to the loop that moves the pizzas, comments in the main.js file near line 501
